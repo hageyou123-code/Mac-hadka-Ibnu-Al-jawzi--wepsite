@@ -1,0 +1,999 @@
+:root {
+  --primary: #0b4f4a;
+  --primary-dark: #063c38;
+  --secondary: #c9a44c;
+  --cream: #f8f5ed;
+  --white: #ffffff;
+  --text: #182624;
+  --muted: #6d7774;
+  --border: #e5e1d7;
+  --shadow: 0 15px 45px rgba(10, 49, 45, .10);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  transition: .3s;
+}
+
+.nav-container {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon,
+.footer-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: var(--secondary);
+  font-family: "Amiri", serif;
+  font-size: 27px;
+  border: 2px solid var(--secondary);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text strong {
+  font-size: 15px;
+  letter-spacing: .4px;
+}
+
+.logo-text span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-menu > a {
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.nav-menu > a:hover,
+.nav-menu > a.active {
+  color: var(--primary);
+}
+
+.nav-register {
+  background: var(--primary);
+  color: white !important;
+  padding: 10px 17px;
+  border-radius: 8px;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 730px;
+  padding-top: 82px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(201,164,76,.15), transparent 25%),
+    linear-gradient(135deg, #f8f5ed 0%, #ffffff 55%);
+  overflow: hidden;
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: .06;
+  background-image:
+    linear-gradient(45deg, var(--primary) 1px, transparent 1px),
+    linear-gradient(-45deg, var(--primary) 1px, transparent 1px);
+  background-size: 70px 70px;
+}
+
+.hero-container {
+  min-height: 648px;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 70px;
+  position: relative;
+}
+
+.arabic-title {
+  color: var(--primary);
+  font-family: "Amiri", serif;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.hero-badge,
+.section-heading span,
+.register-info > span,
+.contact-container > div > span {
+  display: inline-block;
+  color: var(--secondary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.15;
+  margin: 12px 0 20px;
+  max-width: 700px;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--primary);
+}
+
+.hero-content > p {
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 13px 22px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: .3s;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.hero-info {
+  display: flex;
+  gap: 35px;
+}
+
+.hero-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-info strong {
+  color: var(--primary);
+  font-size: 24px;
+}
+
+.hero-info span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.hero-card {
+  position: relative;
+  height: 430px;
+  display: grid;
+  place-items: center;
+}
+
+.quran-card {
+  width: min(390px, 100%);
+  min-height: 330px;
+  border: 1px solid rgba(201,164,76,.6);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(11,79,74,.97), rgba(6,60,56,.97));
+  color: white;
+  padding: 50px 35px;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(11,79,74,.25);
+  position: relative;
+}
+
+.quran-card::before,
+.quran-card::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(201,164,76,.3);
+  border-radius: 14px;
+}
+
+.quran-card::after {
+  inset: 22px;
+  border-style: dashed;
+  opacity: .4;
+}
+
+.quran-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--secondary);
+}
+
+.quran-verse {
+  position: relative;
+  z-index: 1;
+  font-family: "Amiri", serif;
+  font-size: 40px;
+  line-height: 1.8;
+  margin: 25px 0 5px;
+  direction: rtl;
+}
+
+.quran-card p {
+  position: relative;
+  z-index: 1;
+  font-family: "Amiri", serif;
+  font-size: 18px;
+}
+
+.quran-card small {
+  position: relative;
+  z-index: 1;
+  color: #d7d7d0;
+}
+
+.card-decoration {
+  position: absolute;
+  color: var(--secondary);
+  font-size: 45px;
+}
+
+.card-decoration.top {
+  top: 20px;
+  left: 20px;
+}
+
+.card-decoration.bottom {
+  bottom: 20px;
+  right: 20px;
+}
+
+
+/* GENERAL */
+
+.section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.section-heading.center {
+  display: block;
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 55px;
+}
+
+.section-heading h2,
+.register-info h2,
+.contact-container h2 {
+  font-size: clamp(30px, 4vw, 45px);
+  line-height: 1.25;
+  margin-top: 8px;
+}
+
+.section-heading h2 strong,
+.register-info h2 strong,
+.contact-container h2 strong {
+  color: var(--primary);
+}
+
+.section-heading > p {
+  max-width: 430px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.muted {
+  background: var(--cream);
+}
+
+
+/* ABOUT */
+
+.about {
+  background: white;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-text h3 {
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+
+.about-text > p {
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.feature-list {
+  display: grid;
+  gap: 20px;
+}
+
+.feature {
+  display: flex;
+  gap: 15px;
+}
+
+.feature-icon {
+  min-width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  background: rgba(11,79,74,.1);
+  color: var(--primary);
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.feature h4 {
+  font-size: 14px;
+}
+
+.feature p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.about-quote {
+  min-height: 330px;
+  background: var(--primary);
+  color: white;
+  border-radius: 20px;
+  padding: 60px 45px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.quote-icon {
+  color: var(--secondary);
+  font-size: 50px;
+}
+
+.arabic-quote {
+  direction: rtl;
+  font-family: "Amiri", serif;
+  font-size: 29px;
+  margin: 15px 0;
+}
+
+.about-quote p:not(.arabic-quote) {
+  font-family: "Amiri", serif;
+  font-size: 18px;
+}
+
+.about-quote small {
+  color: #c9d1cf;
+}
+
+
+/* COURSES */
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.course-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+  border-color: rgba(11,79,74,.2);
+}
+
+.course-number {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 12px;
+  color: var(--secondary);
+  font-weight: 800;
+}
+
+.course-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  background: rgba(11,79,74,.08);
+  border-radius: 12px;
+  color: var(--primary);
+  font-size: 28px;
+  font-family: "Amiri", serif;
+  margin-bottom: 20px;
+}
+
+.course-card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.course-card a {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+
+/* TEACHERS */
+
+.teachers {
+  background: #fff;
+}
+
+.teacher-message {
+  max-width: 850px;
+  margin: auto;
+  padding: 35px;
+  background: var(--cream);
+  border-radius: 15px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  border-left: 4px solid var(--secondary);
+}
+
+.teacher-symbol {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary);
+  font-size: 28px;
+}
+
+.teacher-message h3 {
+  margin-bottom: 5px;
+}
+
+.teacher-message p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* SCHEDULE */
+
+.schedule-section {
+  background: var(--cream);
+}
+
+.schedule-table {
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.schedule-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 18px 25px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.header-row {
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+.schedule-row strong {
+  color: var(--primary);
+}
+
+
+/* REGISTER */
+
+.register-section {
+  background: var(--primary);
+  color: white;
+}
+
+.register-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.register-info h2 {
+  margin-bottom: 20px;
+}
+
+.register-info h2 strong {
+  color: var(--secondary);
+}
+
+.register-info > p {
+  color: #d0dbd9;
+  max-width: 500px;
+}
+
+.contact-mini {
+  display: flex;
+  gap: 40px;
+  margin-top: 35px;
+}
+
+.contact-mini div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-mini strong {
+  color: var(--secondary);
+  font-size: 12px;
+}
+
+.contact-mini span {
+  font-size: 13px;
+}
+
+.register-form {
+  background: white;
+  color: var(--text);
+  padding: 35px;
+  border-radius: 15px;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-family: inherit;
+  outline: none;
+  background: #fafafa;
+  transition: .2s;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--primary);
+  background: white;
+}
+
+.input-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-message {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* CONTACT */
+
+.contact-section {
+  background: var(--cream);
+  padding: 70px 0;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.contact-container h2 {
+  margin-bottom: 10px;
+}
+
+.contact-container p {
+  color: var(--muted);
+  max-width: 550px;
+}
+
+.whatsapp-button {
+  flex-shrink: 0;
+  padding: 16px 25px;
+  background: #168b57;
+  color: white;
+  border-radius: 9px;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* FOOTER */
+
+footer {
+  background: #063c38;
+  color: white;
+  padding-top: 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  padding-bottom: 50px;
+}
+
+.footer-brand {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.footer-logo {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.footer-brand strong {
+  font-size: 14px;
+}
+
+.footer-brand p {
+  color: #b9c9c6;
+  font-size: 11px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links h4 {
+  color: var(--secondary);
+  margin-bottom: 5px;
+}
+
+.footer-links a {
+  color: #c9d4d2;
+  font-size: 12px;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-bottom p {
+  color: #9db0ac;
+  font-size: 11px;
+}
+
+
+/* BACK TO TOP */
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 900;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .nav-menu {
+    position: fixed;
+    top: 82px;
+    right: -100%;
+    width: 280px;
+    height: calc(100vh - 82px);
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 18px;
+    box-shadow: -10px 10px 30px rgba(0,0,0,.08);
+    transition: .3s;
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero-container,
+  .about-grid,
+  .register-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-bottom: 70px;
+  }
+
+  .hero-card {
+    height: auto;
+  }
+
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .register-grid {
+    gap: 40px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .nav-container {
+    height: 72px;
+  }
+
+  .nav-menu {
+    top: 72px;
+    height: calc(100vh - 72px);
+  }
+
+  .hero {
+    padding-top: 72px;
+  }
+
+  .hero-container {
+    min-height: auto;
+    padding-top: 65px;
+    gap: 50px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-info {
+    gap: 22px;
+  }
+
+  .quran-card {
+    min-height: 300px;
+  }
+
+  .quran-verse {
+    font-size: 32px;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading > p {
+    margin-top: 15px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-message {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .schedule-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .header-row {
+    display: none;
+  }
+
+  .contact-mini {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .register-form {
+    padding: 25px 20px;
+  }
+
+}
